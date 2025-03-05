@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Login Page{% endblock %}
+{% block content %}
+<body style="margin: 0; padding: 0; height: 100vh; overflow: hidden;
+            background-image: url('https://img.freepik.com/free-vector/circles-background-dark-tones_60389-166.jpg?t=st=1740747492~exp=1740751092~hmac=b4e08ecb14fc3da67db0422959bce6e344cb2f65df54615e19a2904e86cf6089&w=1800');
+            background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="card p-4" style="width: 400px; background-color: rgba(0, 0, 0, 0.8); border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);">
+            <form method="post" class="form-register">
+                {{ form.hidden_tag() }}
+                <h1 class="h3 mb-3 font-weight-normal text-center" style="color: #ecf0f1;">Login to Your Account</h1>
+                <style>
+                    .form-control {
+                        width: 100%;
+                        margin-bottom: 15px;
+                        padding: 10px;
+                        border: 1px solid #bdc3c7;
+                        border-radius: 5px;
+                        font-size: 14px;
+                        background-color: rgba(255, 255, 255, 0.1);
+                        color: #ecf0f1;
+                    }
+                    .form-control:focus {
+                        border-color: #3498db;
+                        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+                    }
+                    .form-label {
+                        color: #ecf0f1;
+                        font-weight: bold;
+                    }
+                </style>
+
+                {{ form.username.label(class="form-label") }}
+                {{ form.username(class="form-control", placeholder="Username") }}
+
+                {{ form.password.label(class="form-label") }}
+                {{ form.password(class="form-control", placeholder="Password") }}
+
+                <div class="text-center mt-3">
+                    <a class="btn btn-sm btn-secondary" href="{{ url_for('register_form') }}" style="font-size: 14px;">Don't have an account? Register</a>
+                </div>
+
+                <div class="d-grid mt-3">
+                    {{ form.submit(class="btn btn-primary", style="padding: 10px; font-size: 16px; font-weight: bold; border-radius: 5px;") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+{% endblock %}
